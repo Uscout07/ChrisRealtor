@@ -1,101 +1,144 @@
+"use client";  // Ensure this is at the top for Next.js App Directory
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import { useRouter } from 'next/navigation';
+
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
+import HeroSection from "./components/HeroSection";
+import Aboutme from "./components/Aboutme";
+import { Career } from "./components/Career";
+import { Listings } from "./components/Listings";
+import { ContactForm } from "./components/Contact";
+import { Testimonials } from "./components/Testimonials";
+import Footer from './components/Footer';
+import logo from "./components/public/logo.png";
 import Image from "next/image";
+import divide1 from './components/public/layeredwave1.svg';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter(); // Initialize the router
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  const handleLoginRedirect = () => {
+    router.push('/inconstruction'); // Replace this with the correct route
+  };
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    { name: "Home", href: "#" },
+    { name: "About Me", href: "#about" },
+    { name: "Listings", href: "#listings" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact Me", href: "#contact" },
+  ];
+
+  // Initialize AOS when component mounts
+  useEffect(() => {
+    AOS.init({
+      offset: 120,
+      delay: 10,
+      duration: 400,
+      easing: 'ease',
+      once: false,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+  }, []); // Empty dependency array to run AOS init only once
+
+  return (
+    <main className='scroll-smooth overflow-hidden'>
+      <Navbar className="z-50 bg-transparent fixed w-screen" isBlurred isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+        {/* Mobile Navbar */}
+        <NavbarContent className="md:hidden" justify="start">
+          <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+        </NavbarContent>
+
+        <NavbarContent className="md:hidden pr-3 flex flex-row justify-evenly w-full items-center bg-transparent">
+          <NavbarBrand>
+            <Link href='#'><Image src={logo} alt="logo"/></Link>
+          </NavbarBrand>
+        </NavbarContent>
+
+        {/* Desktop Navbar */}
+        <NavbarContent className="hidden md:flex w-screen flex-grow justify-between items-center bg-transparent">
+          {/* Brand Section */}
+          <NavbarBrand className="flex-grow w-[30%]">
+            <Link href='#'><Image src={logo} alt="logo"/></Link>
+          </NavbarBrand>
+
+          {/* Center Links */}
+          <div className="flex-grow flex justify-evenly items-center bg-transparent w-[40%]">
+            {menuItems.slice(1, -1).map((item) => (
+              <NavbarItem key={item.name}>
+                <Link color="foreground" href={item.href}>
+                  {item.name}
+                </Link>
+              </NavbarItem>
+            ))}
+          </div>
+
+          {/* Right-side Login/Signup Section */}
+          <NavbarContent justify="end" className="flex-grow flex justify-end w-[30%]">
+            <NavbarItem className="hidden lg:flex">
+              <Link href='/inconstruction'>Login</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Button as={Link} color="warning" href="#contact" variant="flat">
+                Contact me
+              </Button>
+            </NavbarItem>
+          </NavbarContent>
+        </NavbarContent>
+
+        {/* Mobile Menu */}
+        <NavbarMenu className={`fixed top-0 left-0 w-full h-full z-50 bg-white flex flex-col ${isMenuOpen ? 'flex' : 'hidden'}`}>
+          {/* Close Button */}
+          <div className="flex justify-end p-4">
+            <button onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">
+              &times;
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={item.name} className="flex-grow flex items-center justify-center">
+              <Link
+                className="h-full w-full flex items-center justify-center text-lg"
+                color={
+                  index === 2
+                    ? "warning"
+                    : index === menuItems.length - 1
+                      ? "danger"
+                      : "foreground"
+                }
+                href={item.href}
+              >
+                {item.name}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+      
+      <HeroSection id="home" data-aos="fade-up" />
+      <Image className="w-full object-contain m-0 z-0 bg-[#fffdfa]" src={divide1} alt="divider" />
+      <Aboutme id="about" data-aos="fade-right" />
+      <Career data-aos="fade-left" />
+      <Listings id="listings"/>
+      <Testimonials id="testimonials" data-aos="flip-up" />
+      <ContactForm id="contact" data-aos="fade-up" />
+      <Footer/>
+    </main>
   );
 }

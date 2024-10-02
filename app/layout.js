@@ -1,15 +1,17 @@
-import localFont from "next/font/local";
+import { Quicksand } from 'next/font/google';
+import { Chivo } from 'next/font/google';
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const quicksand = Quicksand({
+  weight: ['700'],
+  subsets: ['latin'],
+  variable: "--font-quicksand"
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const chivo = Chivo({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: "--font-chivo"
 });
 
 export const metadata = {
@@ -20,10 +22,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${chivo.variable} ${quicksand.variable} antialiased`}>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
