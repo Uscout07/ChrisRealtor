@@ -3,7 +3,6 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect } from "react";
-import { useRouter } from 'next/navigation';
 
 import {
   Navbar,
@@ -28,11 +27,7 @@ import Image from "next/image";
 import divide1 from './components/public/layeredwave1.svg';
 
 export default function Home() {
-  const router = useRouter(); // Initialize the router
-
-  const handleLoginRedirect = () => {
-    router.push('/inconstruction'); // Replace this with the correct route
-  };
+  
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
