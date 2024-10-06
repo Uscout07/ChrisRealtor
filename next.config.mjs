@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  assetPrefix: "./",
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {
-        output: "export",
-        assetPrefix: "./",
-        trailingSlash: true,
         protocol: "https",
         hostname: "images.pexels.com",
         port: "",
