@@ -5,7 +5,7 @@ import { BackgroundBeams } from "./ui/background-beams";
 
 function HeroSection() {
   return (
-    <section className="relative text-gray-600 body-font mt-0 mb-0 pb-0 flex flex-row-reverse max-md:flex-col max-lg:mt-10 bg-[#FEF7F2] overflow-hidden">
+    <section className="relative text-gray-600 body-font mt-0 mb-0 pb-0 flex flex-row-reverse max-md:flex-col max-lg:mt-10 bg-[#FEF7F2]">
       {/* Background Beams - Set in the background with lower z-index */}
       <div className="absolute inset-0 z-0">
         <BackgroundBeams />
