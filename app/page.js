@@ -3,7 +3,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect } from "react";
-import Link className="hover:text-indigo-800 hover:scale-105 active:" from 'next/link';
+import Link from 'next/link';
 
 
 import {
