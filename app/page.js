@@ -21,6 +21,7 @@ import { Career } from "./components/Career";
 import { Listings } from "./components/Listings";
 import { ContactForm } from "./components/Contact";
 import { Testimonials } from "./components/Testimonials";
+import EmailPopup from "./EmailPopup";
 import Footer from "./components/Footer";
 import logo from "./components/public/logo.png";
 import Image from "next/image";
@@ -51,7 +52,7 @@ export default function Home() {
   }, []); // Empty dependency array to run AOS init only once
 
   return (
-    <main className="scroll-smooth">
+    <main className="scroll-smooth overflow-hidden">
       <Navbar
         className="z-50 bg-transparent fixed w-screen"
         isBlurred
@@ -164,7 +165,7 @@ export default function Home() {
           ))}
         </NavbarMenu>
       </Navbar>
-
+      <EmailPopup/>
       <HeroSection id="home" data-aos="fade-up" />
       <Image
         className="w-full object-contain m-0 z-0 bg-[#fffdfa]"
