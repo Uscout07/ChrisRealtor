@@ -3,7 +3,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect } from "react";
-import Link from 'next/link';
+import Link className="hover:text-indigo-800 hover:scale-105 active:" from 'next/link';
 
 
 import {
@@ -62,7 +62,7 @@ export default function Home() {
 
         <NavbarContent className="md:hidden pr-3 flex flex-row justify-evenly w-full items-center bg-transparent">
           <NavbarBrand>
-            <Link href='#'><Image src={logo} alt="logo"/></Link>
+            <Link className="hover:text-indigo-800 hover:scale-105 active:" href='#'><Image src={logo} alt="logo"/></Link>
           </NavbarBrand>
         </NavbarContent>
 
@@ -70,14 +70,14 @@ export default function Home() {
         <NavbarContent className="hidden md:flex w-screen flex-grow justify-between items-center bg-transparent">
           {/* Brand Section */}
           <NavbarBrand className="flex-grow w-[30%]">
-            <Link href='#'><Image src={logo} alt="logo"/></Link>
+            <Link className="hover:text-indigo-800 hover:scale-105 active:" href='#'><Image src={logo} alt="logo"/></Link>
           </NavbarBrand>
 
           {/* Center Links */}
           <div className="flex-grow flex justify-evenly items-center bg-transparent w-[40%]">
             {menuItems.slice(1, -1).map((item) => (
               <NavbarItem key={item.name}>
-                <Link color="foreground" href={item.href}>
+                <Link className="hover:text-indigo-800 hover:scale-105 active:" color="foreground" href={item.href}>
                   {item.name}
                 </Link>
               </NavbarItem>
@@ -87,7 +87,7 @@ export default function Home() {
           {/* Right-side Login/Signup Section */}
           <NavbarContent justify="end" className="flex-grow flex justify-end w-[30%]">
             <NavbarItem className="hidden lg:flex">
-              <Link href='/inconstruction'>Login</Link>
+              <Link className="hover:text-indigo-800 hover:scale-105 md:active:scale-95" href='/under_construction'>Login</Link>
             </NavbarItem>
             <NavbarItem>
               <Button as={Link} color="warning" href="#contact" variant="flat">
