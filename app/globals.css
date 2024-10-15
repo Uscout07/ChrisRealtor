@@ -4,10 +4,14 @@
 
 *{
   scroll-behavior: smooth;
+  margin: none;
+  padding: 0;
 }
+
 body {
-  overflow-x: hidden; /* Prevent horizontal scrolling but allow vertical scrolling */
+  overflow-x: hidden;
 }
+
 
 .scrollable-section {
   overflow: auto; /* or overflow-y: scroll if you want vertical scrolling */
@@ -35,3 +39,4 @@ h1, h2, h3 {
   -webkit-mask-size: cover;
   -webkit-mask-position: center;
 }
+

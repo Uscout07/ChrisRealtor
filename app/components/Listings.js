@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Carousel, Card } from "./ui/apple-cards-carousel";
+import Link from "next/link";
 
 export function Listings() {
   const cards = data.map((card, index) => (
@@ -27,7 +28,7 @@ const ListingContent = ({ description, imageSrc }) => {
           {description}
         </span>
       </p>
-      <a className="text-indigo-700">Know More...</a>
+      <Link href="/under_construction" className="text-indigo-700">Know More...</Link>
     </div>
   );
 };

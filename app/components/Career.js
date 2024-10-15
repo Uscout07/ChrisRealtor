@@ -9,7 +9,7 @@ export function Career() {
         content: (
           <div>
             <p className="text-neutral-800 dark:text-neutral-200 text-md md:text-lg mb-8" id="career">
-              Started my journey in real estate as a junior agent at [Company Name].
+              Started my journey in real estate as a junior agent at Heritage Reality.
             </p>
             <p className="text-neutral-800 dark:text-neutral-200 text-md md:text-lg mb-8">
               Focused on learning the fundamentals of property sales, client relations, and local market dynamics.
@@ -90,7 +90,7 @@ export function Career() {
               Reached a milestone of 150 properties sold over a 15-year career.
             </p>
             <p className="text-neutral-800 dark:text-neutral-200 text-md md:text-lg mb-8">
-              Currently recognized as one of the top-performing agents at [Company Name], focusing on delivering exceptional results for clients while working in a team environment.
+              Currently recognized as one of the top-performing agents at Heritage Reality, focusing on delivering exceptional results for clients while working in a team environment.
             </p>
           </div>
       ),
@@ -105,10 +105,10 @@ export function Career() {
 
     }}><div className="max-w-7xl mx-auto pb-20 px-4 md:px-8 lg:px-10">
     <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-      Changelog from my journey
+      My Realestate Journey
     </h2>
     <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-      I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
+      I&apos;ve been working on  for the past 2 years. Here&apos;s
       a timeline of my journey.
     </p>
   </div></div>
